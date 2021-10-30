@@ -1,0 +1,90 @@
+const password = '12345678';
+const bcrypt = require('bcrypt-nodejs');
+const salt = bcrypt.genSaltSync(8);
+const uuid = require('uuid');
+const ProviderType = require('../enum/ProviderType');
+module.exports = {
+	up: async (queryInterface) => queryInterface.bulkInsert('users', [
+		{
+			country_id: 242,
+			league_id: 1,
+			username: 'luka.mugosa',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 111,
+			stars_high_score: 999,
+			current_league_stars_score: 555,
+		},
+		{
+			country_id: 242,
+			league_id: 1,
+			username: 'dusan.martinovic',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 222,
+			stars_high_score: 888,
+			current_league_stars_score: 444,
+		},
+		{
+			country_id: 242,
+			league_id: 1,
+			username: 'andrija.dragojevic',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 333,
+			stars_high_score: 777,
+			current_league_stars_score: 333,
+		},
+		{
+			country_id: 241,
+			league_id: 1,
+			username: 'vladimir.bigovic',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 444,
+			stars_high_score: 666,
+			current_league_stars_score: 222,
+		},
+		{
+			country_id: 241,
+			league_id: 1,
+			username: 'julija.damjanovic',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 555,
+			stars_high_score: 555,
+			current_league_stars_score: 111,
+		},
+		{
+			country_id: 241,
+			league_id: 1,
+			username: 'velibor.miranovic',
+			password: bcrypt.hashSync(password, salt),
+			provider_id: uuid.v4(),
+			provider_type: ProviderType.GOOGLE,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+			meters_high_score: 666,
+			stars_high_score: 444,
+			current_league_stars_score: 444,
+		},
+	], {}),
+	down: async (queryInterface) => {
+		await queryInterface.bulkDelete('users', null, {});
+	}
+}

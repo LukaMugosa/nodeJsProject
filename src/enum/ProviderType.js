@@ -1,0 +1,6 @@
+module.exports = {
+	DEFAULT: "DEFAULT",
+	GOOGLE: "GOOGLE",
+	APPLE: "APPLE",
+	FACEBOOK: "FACEBOOK",
+}
